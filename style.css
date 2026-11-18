@@ -1,0 +1,16 @@
+:root{--bleu:#2563eb;--vert:#16a34a;--rouge:#dc2626;}
+body{font-family:Arial,sans-serif;background:#f1f5f9;margin:0}
+header{background:var(--bleu);color:#fff;padding:1.5rem;text-align:center}
+main{max-width:900px;margin:1rem auto;padding:0 1rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;margin-bottom:1rem}
+.carte{background:#fff;padding:1rem;text-align:center;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.valeur{font-size:1.8rem;font-weight:700;color:var(--bleu)}
+.legende{color:#666}
+table{width:100%;background:#fff;border-collapse:collapse;margin-bottom:2rem}
+th{background:#1e3a8a;color:#fff;padding:.6rem;text-align:left}
+td{padding:.6rem;border-bottom:1px solid #e2e8f0}
+tr.major td{background:#fef9c3;font-weight:700}
+.badge{padding:.2rem .6rem;border-radius:999px;font-size:.8rem;color:#fff}
+.reussite{background:var(--vert)} .echec{background:var(--rouge)}
+.absent{color:#999;font-style:italic}
+td.moyenne{font-weight:700}

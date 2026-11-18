@@ -1,0 +1,38 @@
+count(/promotion/etudiant) = 12
+<xsl:value-of select="format-number(sum(//note[@matiere='XML']) div count(//note[@matiere='XML']), '0.00')"/>
+count(//etudiant/email) = 9
+Pourquoi different ? Parce que 3 etudiants n'ont pas d'email :
+Diallo Moussa, Faye Ibrahima, Kane Abdoulaye.
+Donc count(etudiant) = 12 mais count(email) = 9.
+
+ETAPE 2 - XPath
+2a. Noms classe L1-B :
+//etudiant[@classe='L1-B']/nom
+-> Ba, Guye, Faye, Cisse, Diouf, Kane
+
+2b. Matricules sans email :
+//etudiant[not(email)]/@matricule
+-> ISEP26-002, ISEP26-006, ISEP26-012
+
+2c. Note XML de ISEP26-007 :
+//etudiant[@matricule='ISEP26-007']/notes/note[@matiere='XML']
+-> 14
+
+2d. Moins de 3 notes :
+count(//etudiant[count(notes/note) < 3]) = 12
+Tous ont 2 notes, donc tous ont moins de 3 notes.
+
+2e. Moyenne promotion en XML :
+sum(//note) div count(//note) = 302.5 div 24 = 12.60
+
+2f. Nombre moyenne >= 10 :
+count(//etudiant[sum(notes/note) div count(notes/note) >= 10]) = 10
+Seuls Faye (8.00) et Diouf (8.50) sont en dessous.
+
+2g. Matricules note XSD > 15 :
+//etudiant[notes/note[@matiere='XSD'] > 15]/@matricule
+-> ISEP26-001 (16), ISEP26-007 (16), ISEP26-011 (17)
+
+2h. Prenom dernier etudiant L1-A :
+//etudiant[@classe='L1-A'][last()]/prenom
+-> Ndeye (Sene)
